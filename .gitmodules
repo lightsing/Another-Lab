@@ -1,3 +1,3 @@
-[submodule "PESTest-NG.js"]
-	path = PESTest-NG.js
-	url = git@github.com:lightsing/PESTest-NG.js.git
+[submodule "app/libs/PEST"]
+	path = app/libs/PEST
+	url = https://github.com/lightsing/PESTest-NG.js.git

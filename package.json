@@ -1,0 +1,11 @@
+{
+  "name": "PEST",
+  "version": "0.0.1",
+  "description": "USTCORi Physics Experiment Simulation System Test App",
+  "main": "main.js",
+  "author": "lightsing",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.6.2"
+  }
+}
