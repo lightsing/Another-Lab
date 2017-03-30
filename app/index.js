@@ -2,6 +2,10 @@
 
 const PEST = require('./libs/PEST/PESTest-client');
 
-function login(info) {
-    console.log(JSON.stringify(info));
+async function login(info) {
+  var client = new PEST.PESTClient(info);
+  console.log(info);
+  var res = await client.login();
+  console.log(res);
+  return res;
 }

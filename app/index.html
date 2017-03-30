@@ -37,7 +37,9 @@
 				const username = $('input[name=username]').val();
 				const password = $('input[name=password]').val();
 				if( username && password ){
-					login({username: username, password: password});
+					login({userID: username, password: password})
+            .then((res) => {console.log(res)})
+            .catch((err) => {console.log(err)});
 				}
 				event.preventDefault();
 			});
