@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome Back</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/material.css">
+    <link rel="stylesheet" media="screen" href="stylesheets/style.css">
+    <script src="javascripts/material.js" charset="utf-8"></script>
+    <script src="javascripts/particles.js"></script>
+    <script src="javascripts/lib/stats.js"></script>
+		<script src="index.js"></script>
+  </head>
+  <body style="margin:0 auto;text-align: center;width: 100%;height: 100%;">
+    <div id="particles-js" style="position: absolute;z-index: 0;"></div>
+    <div style="position: relative; margin:0 auto;text-align: center;color: white;width: 300px;z-index: 1;padding-top: 140px;">
+      <form id="login-form" name="login" style="width: 300px;">
+        <fieldset style="width: 300px;margin: auto;height: 100%; text-align: center;">
+          <div style="color: white;font-size: 30px;">Save Your Lab</div>
+          <div style="margin:0 auto;text-align: center;">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input id="username" type="text" name="username" style="color: white; text-align: center;" class="mdl-textfield__input">
+              <label for="username" style="color: white; text-align: center;" class="mdl-textfield__label">Username</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input id="password" type="password" name="password" style="color: white; text-align: center;" class="mdl-textfield__input">
+              <label for="password" style="color: white; text-align: center;" class="mdl-textfield__label">Password</label>
+            </div>
+          </div>
+        </fieldset>
+        <button style="width: 240px;margin-top: 20px;" class="mdl-button mdl-button--raised mdl-button--primary mdl-ripple-upgraded mybutton">Login</button>
+      </form>
+    </div>
+    <script>
+      particlesJS.load('particles-js', 'assets/particles.json', function() {});
+			var form = document.getElementById('login-form');
+			if (form.attachEvent) {
+			    form.attachEvent("submit", login);
+			} else {
+			    form.addEventListener("submit", login);
+			}
+    </script>
+  </body>
+</html>
