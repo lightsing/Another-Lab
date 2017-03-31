@@ -74,7 +74,7 @@
           }
 					login({userID: username, password: password})
             .then((res) => {
-              window.location.href = "home.html";
+              window.location.href = "home.html?userID="+username+"&password="+password;
             })
             .catch((err) => {
               $('#conent-error>p').text(err);
