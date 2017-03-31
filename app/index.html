@@ -48,6 +48,16 @@
       $('dialog>div>.close').click(function() {
         dialog_error.close();
       });
+      var username = localStorage.getItem('username');
+      if(username) {
+        $('div.mdl-textfield:has(#username)').addClass('is-dirty');
+        $('input[name=username]').val(username);
+      }
+      var password = localStorage.getItem('password');
+      if(password) {
+        $('div.mdl-textfield:has(#password)').addClass('is-dirty');
+        $('input[name=password]').val(password);
+      }
 			$("#login-form").submit(function(event) {
 				const username = $('input[name=username]').val();
 				const password = $('input[name=password]').val();
