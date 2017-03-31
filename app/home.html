@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Save Your Lab</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css">
-    <link rel="stylesheet" media="screen" href="stylesheets/style.css">
+    <!--link rel="stylesheet" media="screen" href="stylesheets/style.css"-->
     <link rel="stylesheet" type="text/css" href="stylesheets/material-icons.css">
+    <style>.info-list { width: 650px;}</style>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="javascripts/material.js" charset="utf-8"></script>
 		<script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -28,12 +29,58 @@
         </nav>
       </div>
       <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here --></div>
+        <div class="page-content">
+          <div id="processbar" style="width: 100%;" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--1-col"></div>
+            <div class="mdl-cell mdl-cell--4-col">
+              <ul class="info-list mdl-list">
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+                    <span>Bob Odenkirk</span>
+                    <span class="mdl-list__item-text-body">
+                      Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
+                      character, Bob stars in his own show now, called "Better Call Saul".
+                    </span>
+                  </span>
+                  <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-cell mdl-cell--1-col"></div>
+          </div>
+        </div>
       </main>
     </div>
+    <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
     <script>
+      function hidetoast() {
+        var toast = $('#toast');
+        toast.removeClass('mdl-snackbar--active');
+        toast.attr('aria-hidden','true');
+      }
+      function remind(data) {
+        data.actionHandler = data.actionHandler || hidetoast();
+        data.actionText = data.actionText || 'OK';
+        $('#toast')[0].MaterialSnackbar.showSnackbar(data);
+      }
+      function processing() {
+        $("#processbar").addClass('mdl-progress__indeterminate');
+      }
+      function complete() {
+        $("#processbar").removeClass('mdl-progress__indeterminate');
+      }
+      var Oclient;
       newClient().then((client) => {
         console.log(client);
+        Oclient = client;
+        remind({message:'Lab is ready.'});
+        complete();
         $("#schoolName").text(client.user.schoolName);
       });
     </script>
