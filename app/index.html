@@ -28,6 +28,10 @@
             </div>
           </div>
         </fieldset>
+        <label style="width: 180px;" name="remember" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-remember">
+          <input type="checkbox" id="switch-remember" class="mdl-switch__input" checked>
+          <span class="mdl-switch__label">Remember Me</span>
+        </label>
         <button style="width: 240px;margin-top: 20px;" class="mdl-button mdl-button--raised mdl-button--primary mdl-ripple-upgraded mybutton">Login</button>
       </form>
     </div>
@@ -62,6 +66,12 @@
 				const username = $('input[name=username]').val();
 				const password = $('input[name=password]').val();
 				if( username && password ){
+          localStorage.setItem('username', username);
+          if( $('label[name=remember]').hasClass('is-checked') ){
+            localStorage.setItem('password', password);
+          }else{
+            localStorage.removeItem('password');
+          }
 					login({userID: username, password: password})
             .then((res) => {console.log(res)})
             .catch((err) => {
