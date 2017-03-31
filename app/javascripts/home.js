@@ -22,9 +22,12 @@ function getInfo() {
   }
 }
 
-function newClient() {
+async function newClient() {
   var info = getInfo();
   if( info ) {
-    return new PEST.PESTClient(info);
+    var client = new PEST.PESTClient(info);
+    await client.login();
+    await client.logout();
+    return client;
   }
 }
