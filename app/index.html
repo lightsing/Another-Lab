@@ -73,7 +73,9 @@
             localStorage.removeItem('password');
           }
 					login({userID: username, password: password})
-            .then((res) => {console.log(res)})
+            .then((res) => {
+              window.location.href = "home.html";
+            })
             .catch((err) => {
               $('#conent-error>p').text(err);
               dialog_error.showModal();
