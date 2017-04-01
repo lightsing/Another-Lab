@@ -1,6 +1,6 @@
 "use strict";
 
-const PEST = require('./libs/PEST/PESTest-client');
+const PEST = require('pest-client');
 
 async function login(info) {
   var client = new PEST.PESTClient(info);

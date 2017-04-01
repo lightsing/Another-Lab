@@ -1,6 +1,6 @@
 "use strict";
 
-const PEST = require('./libs/PEST/PESTest-client');
+const PEST = require('pest-client');
 
 const cell = `<li class="mdl-list__item mdl-list__item--three-line">
   <span class="mdl-list__item-primary-content">

@@ -1,5 +1,5 @@
 {
-  "name": "Another Lab",
+  "name": "AnotherLab",
   "version": "0.0.1",
   "description": "USTCORi Physics Experiment Simulation System Test App",
   "main": "main.js",
@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^1.6.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "pest-client": "^0.0.5"
   }
 }
