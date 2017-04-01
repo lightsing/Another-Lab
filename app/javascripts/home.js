@@ -2,6 +2,21 @@
 
 const PEST = require('./libs/PEST/PESTest-client');
 
+const cell = `<li class="mdl-list__item mdl-list__item--three-line">
+  <span class="mdl-list__item-primary-content">
+    <span>{0}</span>
+    <span class="mdl-list__item-text-body">
+      {1}
+    </span>
+  </span>
+  <span class="mdl-list__item-secondary-content">
+    <i class="material-icons">done</i>
+    <span class="mdl-list__item-text-body">
+      {2}/100
+    </span>
+  </span>
+</li>`;
+
 function getParameterByName(name, url) {
   if (!url) {
     url = window.location.href;
@@ -30,4 +45,8 @@ async function newClient() {
     await client.logout();
     return client;
   }
+}
+
+function generateCell(info) {
+  return String.format(cell,res[i].ExamName,res[i].ClassName,res[i].GainPoint);
 }

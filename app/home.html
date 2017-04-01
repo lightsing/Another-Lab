@@ -30,34 +30,7 @@
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <ul style="display: block; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
-            <li class="mdl-list__item mdl-list__item--three-line">
-              <span class="mdl-list__item-primary-content">
-                <span>核磁共振</span>
-                <span class="mdl-list__item-text-body">
-                  2017年春季-现代物理技术实验-核磁共振(2017-01-17 17:23:00)
-                </span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                <a class="mdl-list__item-secondary-action" href="#">
-                  <i class="material-icons">send</i>
-                </a>
-              </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--three-line">
-              <span class="mdl-list__item-primary-content">
-                <span>核磁共振</span>
-                <span class="mdl-list__item-text-body">
-                  2017年春季-现代物理技术实验-核磁共振(2017-01-17 17:23:00)
-                </span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                <i class="material-icons">done</i>
-                <span class="mdl-list__item-text-body">
-                  100/100
-                </span>
-              </span>
-            </li>
+          <ul id="info" style="display: block; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
           </ul>
         </div>
       </main>
@@ -83,10 +56,25 @@
       function complete() {
         $("#processbar").removeClass('mdl-progress__indeterminate');
       }
+      String.format = function() {
+            var s = arguments[0];
+            for (var i = 0; i < arguments.length - 1; i += 1) {
+                var reg = new RegExp('\\{' + i + '\\}', 'gm');
+                s = s.replace(reg, arguments[i + 1]);
+            }
+            return s;
+      };
+
       var Oclient;
       newClient().then((client) => {
         console.log(client);
         Oclient = client;
+        client.getGrades().then((res) => {
+          var info = $('#info');
+          for (var i = res.length; i-- > 0;){
+            info.append(String.format(cell,res[i].ExamName,res[i].ClassName,res[i].GainPoint));
+          }
+        });
         remind({message:'Lab is ready.'});
         complete();
         $("#schoolName").text(client.user.schoolName);
