@@ -30,7 +30,9 @@
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <ul id="info" style="display: block; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
+          <ul id="undo" style="display: none; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
+          </ul>
+          <ul id="info" style="display: none; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
           </ul>
         </div>
       </main>
@@ -69,12 +71,8 @@
       newClient().then((client) => {
         console.log(client);
         Oclient = client;
-        client.getGrades().then((res) => {
-          var info = $('#info');
-          for (var i = res.length; i-- > 0;){
-            info.append(String.format(cell,res[i].ExamName,res[i].ClassName,res[i].GainPoint));
-          }
-        });
+        refreshGrades(client);
+        refreshUndo(client);
         remind({message:'Lab is ready.'});
         complete();
         $("#schoolName").text(client.user.schoolName);
