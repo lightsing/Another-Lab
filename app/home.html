@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css">
     <!--link rel="stylesheet" media="screen" href="stylesheets/style.css"-->
     <link rel="stylesheet" type="text/css" href="stylesheets/material-icons.css">
-    <style>.info-list { width: 650px;}</style>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="javascripts/material.js" charset="utf-8"></script>
 		<script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -21,36 +20,45 @@
           <div class="mdl-layout-spacer"></div>
           <span class="mdl-layout-title" id="schoolName"></span>
         </div>
+        <div id="processbar" style="width: 100%;" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Menu</span>
+      <div class="mdl-layout__drawer mdl-shadow--4dp">
+        <span class="mdl-layout-title mdl-shadow--2dp">Menu</span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="index.html">Logout</a>
         </nav>
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <div id="processbar" style="width: 100%;" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--1-col"></div>
-            <div class="mdl-cell mdl-cell--4-col">
-              <ul class="info-list mdl-list">
-                <li class="mdl-list__item mdl-list__item--three-line">
-                  <span class="mdl-list__item-primary-content">
-                    <span>Bob Odenkirk</span>
-                    <span class="mdl-list__item-text-body">
-                      Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
-                      character, Bob stars in his own show now, called "Better Call Saul".
-                    </span>
-                  </span>
-                  <span class="mdl-list__item-secondary-content">
-                    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div class="mdl-cell mdl-cell--1-col"></div>
-          </div>
+          <ul style="display: block; width: 500px; margin: 0 auto;" class="info-list mdl-list mdl-shadow--2dp">
+            <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <span>核磁共振</span>
+                <span class="mdl-list__item-text-body">
+                  2017年春季-现代物理技术实验-核磁共振(2017-01-17 17:23:00)
+                </span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#">
+                  <i class="material-icons">send</i>
+                </a>
+              </span>
+            </li>
+            <li class="mdl-list__item mdl-list__item--three-line">
+              <span class="mdl-list__item-primary-content">
+                <span>核磁共振</span>
+                <span class="mdl-list__item-text-body">
+                  2017年春季-现代物理技术实验-核磁共振(2017-01-17 17:23:00)
+                </span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <i class="material-icons">done</i>
+                <span class="mdl-list__item-text-body">
+                  100/100
+                </span>
+              </span>
+            </li>
+          </ul>
         </div>
       </main>
     </div>
