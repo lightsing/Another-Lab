@@ -5,9 +5,18 @@
   "main": "main.js",
   "author": "lightsing",
   "license": "MIT",
+  "build": {
+    "appId": "me.lightsing.another-lab"
+  },
+  "scripts": {
+    "pack": "build --dir",
+    "dist": "build"
+  },
   "dependencies": {
-    "electron": "^1.6.2",
     "jquery": "^3.2.1",
     "pest-client": "^0.0.5"
+  },
+  "devDependencies" : {
+    "electron": "^1.6.2"
   }
 }
