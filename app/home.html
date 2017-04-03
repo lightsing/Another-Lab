@@ -6,11 +6,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css">
     <!--link rel="stylesheet" media="screen" href="stylesheets/style.css"-->
     <link rel="stylesheet" type="text/css" href="stylesheets/material-icons.css">
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="javascripts/material.js" charset="utf-8"></script>
-		<script src="../node_modules/jquery/dist/jquery.js"></script>
-		<script src="javascripts/home.js"></script>
-    <script>if (window.module) module = window.module;</script>
   </head>
   <body style="margin:0 auto; width: 100%;height: 100%;">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -41,7 +36,13 @@
       <div class="mdl-snackbar__text"></div>
       <button class="mdl-snackbar__action" type="button"></button>
     </div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="javascripts/material.js" charset="utf-8"></script>
+		<script src="../node_modules/jquery/dist/jquery.js"></script>
+		<script src="javascripts/home.js"></script>
+    <script>if (window.module) module = window.module;</script>
     <script>
+    (function() {
       function hidetoast() {
         var toast = $('#toast');
         toast.removeClass('mdl-snackbar--active');
@@ -77,6 +78,7 @@
         complete();
         $("#schoolName").text(client.user.schoolName);
       });
+    })();
     </script>
   </body>
 </html>
