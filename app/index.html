@@ -30,17 +30,6 @@
         <button style="width: 240px;margin-top: 20px;" class="mdl-button mdl-button--raised mdl-button--primary mdl-ripple-upgraded mybutton">Login</button>
       </form>
     </div>
-    <dialog id="dialog-error" class="mdl-dialog">
-      <h6 class="mdl-dialog__title">Oops. Something went wrong.</h6>
-      <div id="conent-error" class="mdl-dialog__content">
-        <p>
-          Error.
-        </p>
-      </div>
-      <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button close">OK</button>
-      </div>
-    </dialog>
     <script src="javascripts/material.js" charset="utf-8"></script>
     <script src="javascripts/particles.js"></script>
     <script src="javascripts/lib/stats.js"></script>
@@ -48,6 +37,7 @@
 		<script src="javascripts/index.js"></script>
     <script>
     (function() {
+      const ipc = require('electron').ipcRenderer;
       particlesJS.load('particles-js', 'assets/particles.json', function() {});
       var dialog_error = document.querySelector('#dialog-error');
       $('dialog>div>.close').click(function() {
@@ -78,8 +68,7 @@
               window.location.href = "home.html?userID="+username+"&password="+password;
             })
             .catch((err) => {
-              $('#conent-error>p').text(err);
-              dialog_error.showModal();
+              ipc.send('open-error-dialog',err);
             });
 				}
 				event.preventDefault();

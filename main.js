@@ -1,4 +1,6 @@
 const {app, BrowserWindow} = require('electron')
+const ipc = require('electron').ipcMain
+const dialog = require('electron').dialog
 const path = require('path')
 const url = require('url')
 
@@ -29,4 +31,8 @@ app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
+})
+
+ipc.on('open-error-dialog', function (event, msg) {
+  dialog.showErrorBox('Error', msg);
 })
