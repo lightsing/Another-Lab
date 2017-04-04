@@ -4,7 +4,12 @@
   "description": "USTCORi Physics Experiment Simulation System Test App",
   "main": "main.js",
   "author": "lightsing",
+  "email": "lightsing.inbox@gmail.com",
   "license": "MIT",
+  "repository": {
+	  "type" : "git",
+	  "url" : "https://github.com/lightsing/Another-Lab"
+  },
   "build": {
     "appId": "me.lightsing.another-lab"
   },
