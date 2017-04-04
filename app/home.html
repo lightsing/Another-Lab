@@ -32,10 +32,6 @@
         </div>
       </main>
     </div>
-    <div id="toast" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-    </div>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="javascripts/material.js" charset="utf-8"></script>
 		<script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -43,16 +39,6 @@
     <script>if (window.module) module = window.module;</script>
     <script>
     (function() {
-      function hidetoast() {
-        var toast = $('#toast');
-        toast.removeClass('mdl-snackbar--active');
-        toast.attr('aria-hidden','true');
-      }
-      function remind(data) {
-        data.actionHandler = data.actionHandler || hidetoast();
-        data.actionText = data.actionText || 'OK';
-        $('#toast')[0].MaterialSnackbar.showSnackbar(data);
-      }
       function processing() {
         $("#processbar").addClass('mdl-progress__indeterminate');
       }
@@ -74,7 +60,7 @@
         Oclient = client;
         refreshGrades(client);
         refreshUndo(client);
-        remind({message:'Lab is ready.'});
+        new Notification('Another Lab', { body: 'Lab is ready.' });
         complete();
         $("#schoolName").text(client.user.schoolName);
       });
